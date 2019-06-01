@@ -13,15 +13,13 @@
 
 ## Podstawowe informacje
 Tworzenie raportów na podstawie danych zawartych w plikach Excel. 
-Raporty tworzone zawierają wyszczególnienie ilość godzin danego pracownika na dany projekt oraz ilość godzin wszystkich pracowników na kontkretny projekt.
+Raporty tworzone zawierają wyszczególnienie ilości godzin danego pracownika na dany projekt oraz ilość godzin wszystkich pracowników na konkretny projekt.
 
 ## Technologie
 * Java - version 1.8
 
 ## Przykłady użycia
-Klient poprzez interfejs wpisuje komendę:
-* Przykład 1: `report 2012/`
-* Przykład 2: `report 2012/02/`
+Klient poprzez interfejs wybiera opcje.
 
 ## Funkcje
 Lista funkcji do zrobienia:
