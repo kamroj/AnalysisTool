@@ -1,9 +1,12 @@
 package com.koguty.spocone;
 
-class Project {
+/**
+ * @author Kamil Rojek
+ */
+public class Project {
     private String name;
 
-    Project(String name) {
+    public Project(String name) {
         this.name = name;
     }
 

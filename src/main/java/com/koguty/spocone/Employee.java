@@ -3,25 +3,28 @@ package com.koguty.spocone;
 import java.util.HashMap;
 import java.util.Map;
 
-class Employee {
+/**
+ * @author Kamil Rojek
+ */
+public class Employee {
     private String personalDetails;
-    private Map<Project, Integer> workingData;
+    private Map<Project, Float> workingData;
 
-    Employee(String personalDetails) {
+    public Employee(String personalDetails) {
         this.personalDetails = personalDetails;
         workingData = new HashMap<>();
     }
 
-    String getPersonalDetails() {
+    public String getPersonalDetails() {
         return personalDetails;
     }
 
-    void updateWorkingData(Project project, Integer workedHours) throws InvalidWorkingDataException {
+    public void updateWorkingData(Project project, float workedHours) throws InvalidWorkingDataException {
         if (project == null || workedHours <= 0)
             throw new InvalidWorkingDataException("Invalid working Data");
 
         if (workingData.containsKey(project)) {
-            Integer hours = workingData.get(project);
+            Float hours = workingData.get(project);
             hours += workedHours;
             workingData.put(project, hours);
         } else {
@@ -29,7 +32,7 @@ class Employee {
         }
     }
 
-    Map<Project, Integer> getWorkingData() {
+    public Map<Project, Float> getWorkingData() {
         return workingData;
     }
 }
