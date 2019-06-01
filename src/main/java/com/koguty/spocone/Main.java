@@ -4,46 +4,46 @@ import java.util.Scanner;
 
 class Main {
 	public static void main(String[] args) {
-		System.out.println("*********************");
-		System.out.println("***   Welcome in  ***");
-		System.out.println("*** Analysis Tool ***");
-		System.out.println("*********************");
-		System.out.println("Podaj ścieżkę do danych: ");
+		System.out.println("*************************");
+		System.out.println("*****   Welcome in  *****");
+		System.out.println("***** Analysis Tool *****");
+		System.out.println("*************************");
 		Scanner sc = new Scanner(System.in);
-		String path = sc.nextLine();
-		System.out.println("Wybierz opcję:\n");
-		System.out.println("1 - raport 1\n" + "2 - raport 2\n" + "v - wersja\n" + "h - help\n" + "e - exit");
-		String choice = sc.nextLine();
+		String path = args[0];
 
 		boolean done = true;
 
 		do {
-			switch (choice) {
-			case "1": {
+			System.out.println("Wybierz opcję:\n");
+			System.out.println("1 - raport 1\n" + "2 - raport 2\n" + "v - wersja\n" + "h - help\n" + "e - exit");
+			System.out.println("				");
+			String choice = sc.nextLine();
+
+			if (choice == "e") {
+				done = false;
+				break;
+			} else {
+				switch (choice) {
+				case "1": {
 //        	printRaport1();
-				break;
-			}
-			case "2": {
+					break;
+				}
+				case "2": {
 //        	printRaport2();
-				break;
+					break;
+				}
+				case "h": {
+					printHelp();
+					break;
+				}
+				case "v": {
+					printVersion();
+					break;
+				}
+				}
 			}
-			case "h": {
-				printHelp();
-				
-				break;
-			}
-			case "v": {
-				printVersion();
-				break;
-			}
-			case "e": {
-				return;
-			}
-			}
-			break;
-			
-		}
-			while (done == false); 
+		} while (done == false);
+		exit();
 	}
 
 	public static void printVersion() {
@@ -52,5 +52,11 @@ class Main {
 
 	public static void printHelp() {
 		System.out.println("help");
+	}
+
+	public static void exit() {
+		System.out.println("Do widzenia!\n");
+		System.out.println("				");
+		System.exit(0);
 	}
 }
