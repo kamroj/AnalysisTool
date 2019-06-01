@@ -3,6 +3,7 @@ package com.koguty.spocone.analyzing;
 import com.koguty.spocone.Employee;
 import com.koguty.spocone.Project;
 
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -10,5 +11,5 @@ import java.util.Set;
  */
 public interface DataReceiver {
     Set<Employee> getEmployeesData();
-    Set<Project> getProjectData();
+    List<Project> getProjectData();
 }

@@ -8,7 +8,7 @@ public class PrintReport {
 		System.out.println("Raport liczby godzin przepracowawanych przez poszczególnych pracowników");
 
 		for (Employee employee : employees) {
-			System.out.println(employee.getPersonalDetails() + " " + employee.getWorkingData());
+			//System.out.println(employee.getPersonalDetails() + " " + employee.getWorkingData());
 		}
 	}
 
@@ -16,7 +16,7 @@ public class PrintReport {
 		System.out.println("Raport liczby godzin poświęconych na poszczególne projekty");
 
 		for (Project project : projects) {
-			System.out.println(project.getName() + " " + project.getWorkingData());
+			//System.out.println(project.getName() + " " + project.getWorkingData());
 		}
 	}
 	

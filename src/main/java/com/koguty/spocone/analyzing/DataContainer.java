@@ -3,23 +3,31 @@ package com.koguty.spocone.analyzing;
 import com.koguty.spocone.Employee;
 import com.koguty.spocone.Project;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 /**
  * @author Kamil Rojek
  */
-class DataContainer implements DataReceiver{
+public class DataContainer implements DataReceiver{
     private Set<Employee> employees;
-    private Set<Project> projects;
+    private List<Project> projects;
 
     DataContainer() {
         this.employees = new HashSet<>();
-        this.projects = new HashSet<>();
+        this.projects = new ArrayList<>();
     }
 
-    void updateEmplyeesData(Employee employee) {
+    void addEmployee(Employee employee) {
         employees.add(employee);
+    }
+
+    void addProject(Project project) {
+        if(projects.contains(project))
+            return;
+        projects.add(project);
     }
 
     @Override
@@ -28,7 +36,15 @@ class DataContainer implements DataReceiver{
     }
 
     @Override //todo zrobienie logiki
-    public Set<Project> getProjectData() {
+    public List<Project> getProjectData() {
         return projects;
+    }
+
+    public boolean hasProject(String sheetName) {
+        return projects.stream().anyMatch(p -> p.getName().equals(sheetName));
+    }
+
+    public Project getSpecificProject(String sheetName) {
+        return projects.stream().filter(p -> p.getName().equals(sheetName)).findFirst().get();
     }
 }
