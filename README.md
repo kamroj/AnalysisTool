@@ -3,9 +3,9 @@
 [![Build Status](https://travis-ci.org/kamroj/AnalysisTool.svg?branch=develop)](https://travis-ci.org/kamroj/AnalysisTool)
 
 ## Spis treści
-* [Podstawowe informacje](#informacje)
+* [Podstawowe informacje](#podstawowe-informacje)
 * [Technologie](#technologie)
-* [Przykłady użycia](#przyklady)
+* [Przykłady użycia](#przykłady-użycia)
 * [Funkcje](#funkcje)
 * [Status](#status)
 * [Inspiracja](#inspiracja)
