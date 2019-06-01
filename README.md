@@ -1,6 +1,6 @@
 # AnalysisTool
 > Progam do analizy danych przepracowanych godzin na dane projekty wszystkich pracowników danej firmy.
-[![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://travis-ci.org/joemccann/dillinger)
+[![Build Status](https://travis-ci.org/kamroj/AnalysisTool.svg?branch=develop)](https://travis-ci.org/kamroj/AnalysisTool)
 
 ## Spis treści
 * [Podstawowe informacje](#podstawowe_infomacje)
