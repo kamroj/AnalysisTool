@@ -13,38 +13,45 @@ class Main {
 
 		boolean done = true;
 
-		do {
+		while (done == true) {
+			System.out.println("				");
 			System.out.println("Wybierz opcję:\n");
 			System.out.println("1 - raport 1\n" + "2 - raport 2\n" + "v - wersja\n" + "h - help\n" + "e - exit");
 			System.out.println("				");
 			String choice = sc.nextLine();
 
 			if (choice == "e") {
-				done = false;
-				break;
+
 			} else {
-				switch (choice) {
-				case "1": {
-//        	printRaport1();
-					break;
-				}
-				case "2": {
-//        	printRaport2();
-					break;
-				}
-				case "h": {
-					printHelp();
-					break;
-				}
-				case "v": {
-					printVersion();
-					break;
-				}
-				}
+
+					switch (choice) {
+					case "1": {
+//        				printRaport1();
+						break;
+					}
+					case "2": {
+//        				printRaport2();
+						break;
+					}
+					case "h": {
+						printHelp();
+						break;
+					}
+					case "v": {
+						printVersion();
+						break;
+					}
+					case "e": {
+						done = false;
+						exitpp();
+						break;
+					}
+					default: System.out.println("Podałeś niepoprawną opcję! Spróbuj ponownie.");
+					}
+				} 
 			}
-		} while (done == false);
-		exit();
-	}
+		}
+
 
 	public static void printVersion() {
 		System.out.println("0.0.1");
@@ -54,7 +61,7 @@ class Main {
 		System.out.println("help");
 	}
 
-	public static void exit() {
+	public static void exitpp() {
 		System.out.println("Do widzenia!\n");
 		System.out.println("				");
 		System.exit(0);
