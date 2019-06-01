@@ -12,34 +12,45 @@ class Main {
 		Scanner sc = new Scanner(System.in);
 		String path = sc.nextLine();
 		System.out.println("Wybierz opcję:\n");
-		System.out.println("1 - raport 1\n" + "2 - raport 2\n" + "v - wersja\n" + "h - help\n"+ "e - exit");
+		System.out.println("1 - raport 1\n" + "2 - raport 2\n" + "v - wersja\n" + "h - help\n" + "e - exit");
 		String choice = sc.nextLine();
-		
-		boolean done = false;
-		
-		do {	
-		switch (choice) {
-		case "1": {
-//        	printRaport1();
-			break;
-		}
-		case "2": {
-//        	printRaport2();
-			break;
-		}
-		case "h": {
-//        	printHelp();
-			break;
-		}
-		case "v": {
-//        	println();
-			break;
-		}
-		case "e": {
-			return;
-		}
-		}
-		} while (!done);
 
+		boolean done = true;
+
+		do {
+			switch (choice) {
+			case "1": {
+//        	printRaport1();
+				break;
+			}
+			case "2": {
+//        	printRaport2();
+				break;
+			}
+			case "h": {
+				printHelp();
+				
+				break;
+			}
+			case "v": {
+				printVersion();
+				break;
+			}
+			case "e": {
+				return;
+			}
+			}
+			break;
+			
+		}
+			while (done == false); 
+	}
+
+	public static void printVersion() {
+		System.out.println("0.0.1");
+	}
+
+	public static void printHelp() {
+		System.out.println("help");
 	}
 }
