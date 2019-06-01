@@ -1,5 +1,5 @@
 # AnalysisTool
-> Progam do analizy danych przepracowanych godzin na dane projekty wszystkich pracowników danej firmy.
+> Program do analizy i zliczania nakładu pracy.
 [![Build Status](https://travis-ci.org/kamroj/AnalysisTool.svg?branch=develop)](https://travis-ci.org/kamroj/AnalysisTool)
 
 ## Spis treści
