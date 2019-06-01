@@ -14,7 +14,10 @@ class Main {
 		System.out.println("Wybierz opcję:\n");
 		System.out.println("1 - raport 1\n" + "2 - raport 2\n" + "v - wersja\n" + "h - help\n"+ "e - exit");
 		String choice = sc.nextLine();
-			
+		
+		boolean done = false;
+		
+		do {	
 		switch (choice) {
 		case "1": {
 //        	printRaport1();
@@ -29,15 +32,15 @@ class Main {
 			break;
 		}
 		case "v": {
-//        	printVersion();
+//        	println();
 			break;
 		}
 		case "e": {
 //        	printVersion();
 			break;
 		}
-
 		}
+		} while (!done);
 
 	}
 }
