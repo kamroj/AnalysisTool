@@ -36,8 +36,7 @@ class Main {
 			break;
 		}
 		case "e": {
-//        	printVersion();
-			break;
+			return;
 		}
 		}
 		} while (!done);
