@@ -104,7 +104,7 @@ class Main {
 			}
 
 	} catch (Exception e) {
-		//printHelp();
+		printHelp();
 	}
 }
 
