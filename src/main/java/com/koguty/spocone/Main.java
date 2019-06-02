@@ -15,7 +15,7 @@ class Main {
     public static void main(String[] args) {
         printWelcomoLogo();
 
-        String path = "/home/kamil/Kod/AnalysisTool";
+        String path = "/home/kamil/Kod/AnalysisTool/reporter-dane/";
         DataReceiver dataReceiver = generateData(path);
         //DataReceiver dataReceiver = new Analizer().prepareData();
 
