@@ -51,7 +51,7 @@ public class DataConsolePrinter implements IDataGenerator {
 
     private void printEmployeeAdvancedRaport(Employee employee) {
         for (Project project : employee.getProjects()) {
-            System.out.printf("%s | %s | %.02f | %.02f\n", employee.getPersonalDetails(), project.getName(),
+            System.out.printf("%s | %s | %.2f | %.2f\n", employee.getPersonalDetails(), project.getName(),
                     project.getSummaryParticipantHours(employee), (project.getSummaryParticipantHours(employee)/employee.getTotalHoursInAllProject()));
         }
     }
@@ -88,7 +88,7 @@ public class DataConsolePrinter implements IDataGenerator {
 
     private void printProjectAdvancedRaport(Project project) {
         for (Employee employee : project.getParticipants()) {
-            System.out.printf("%s | %s | %f.2 | %f.2", project.getName(), employee.getPersonalDetails(),
+            System.out.printf("%s | %s | %.2f | %.2f\n", project.getName(), employee.getPersonalDetails(),
                     project.getSummaryParticipantHours(employee), (project.getSummaryParticipantHours(employee)/project.getSummaryProjectHours()));
         }
     }
