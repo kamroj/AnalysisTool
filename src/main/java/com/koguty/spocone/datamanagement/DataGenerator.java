@@ -10,6 +10,14 @@ public class DataGenerator {
         this.generator = generator;
     }
 
+    public void generateEmployeeBasicRaport() {
+        generator.generateEmployeeBasicRaport();
+    }
+
+    public void generateProjectBasicRaport() {
+        generator.generateProjectBasicRaport();
+    }
+
     public void generateEmployeeAdvancedRaport() {
         generator.generateEmployeeAdvancedRaport();
     }
