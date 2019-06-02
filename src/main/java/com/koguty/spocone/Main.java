@@ -14,23 +14,24 @@ class Main {
 	public static void main(String[] args) {
 
 		printWelcomeLogo();
+
 		String choice = null;
 		String path = null;
+//		String filter = null;
 
 		try {
 			try {
 				path = args[1];
 			} catch (Exception e) {
-				System.out.println("Specify path");
 			}
-
 			choice = args[0];
+//			filter = args[2];
 
 			switch (choice) {
 			case "-re1": {
 				DataReceiver dataReceiver = generateData(path);
 				DataGenerator dataGenerator = new DataGenerator(new DataConsolePrinter(dataReceiver));
-				dataGenerator.generateEmployeeAdvancedRaport();
+				dataGenerator.generateEmployeeBasicRaport();
 				break;
 			}
 			case "-rp2": {
@@ -59,6 +60,8 @@ class Main {
 				printVersion();
 				break;
 			}
+			default:
+				printHelp();
 			}
 
 		} catch (Exception e) {
@@ -71,7 +74,12 @@ class Main {
 	}
 
 	public static void printHelp() {
-		System.out.println("[-v] [-h] [-re1] [-rp2] [-re3] [-rp4]");
+		System.out.println("\n[-v] [-h] [-re1 <path>] [-rp2 <path>] [-re3 <path>] [-rp4 <path>] \n\n"
+				+ "re1 - Tworzenie raportu 1 - Osoba+godziny pracy we wszystkich projektach \n"
+				+ "rp2 - Tworzenie raportu 2 - Projekt+godziny pracy wszystkich programistów \n"
+				+ "re3 - Tworzenie raportu 1+3 - Osoba+godziny pracy w danych projektach \n"
+				+ "rp4 - Tworzenie raportu 4 - Szczegółowy raport dla projektówh \n"
+				+ "v - Wyświetla wersję programu \n" + "h -  wyświetla pomoc \n");
 	}
 
 	private static DataReceiver generateData(String path) {
