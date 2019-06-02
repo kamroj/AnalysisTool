@@ -4,6 +4,7 @@ import com.koguty.spocone.analyzing.Analizer;
 import com.koguty.spocone.analyzing.DataContainer;
 import com.koguty.spocone.analyzing.DataReceiver;
 import com.koguty.spocone.datamanagement.DataConsolePrinter;
+import com.koguty.spocone.datamanagement.DataExcelGenerator;
 import com.koguty.spocone.datamanagement.DataGenerator;
 import com.koguty.spocone.datamanagement.IDataGenerator;
 import com.koguty.spocone.pather.Pather;
@@ -16,44 +17,81 @@ class Main {
 		printWelcomeLogo();
 
 		String choice = null;
+		String choice2 = null;
 		String path = null;
 //		String filter = null;
 
 		try {
 			try {
-				path = args[1];
+				path = args[0];
 			} catch (Exception e) {
 			}
-			choice = args[0];
+			choice = args[1];
+			choice2 = args[2];
 //			filter = args[2];
-
-			switch (choice) {
-			case "-re1": {
-				DataReceiver dataReceiver = generateData(path);
-				DataGenerator dataGenerator = new DataGenerator(new DataConsolePrinter(dataReceiver));
-				dataGenerator.generateEmployeeBasicRaport();
-				break;
-			}
-			case "-rp2": {
-				DataReceiver dataReceiver = generateData(path);
-				DataGenerator dataGenerator = new DataGenerator(new DataConsolePrinter(dataReceiver));
-				dataGenerator.generateProjectBasicRaport();
-				break;
-			}
-			case "-re3": {
-				DataReceiver dataReceiver = generateData(path);
-				DataGenerator dataGenerator = new DataGenerator(new DataConsolePrinter(dataReceiver));
-				dataGenerator.generateEmployeeAdvancedRaport();
-				break;
-			}
-			case "-rp4": {
-				DataReceiver dataReceiver = generateData(path);
-				DataGenerator dataGenerator = new DataGenerator(new DataConsolePrinter(dataReceiver));
-				dataGenerator.generateProjectAdvancedRaport();
-				break;
-			}
+		
+			
+			
+			switch (choice) {	
+			
+				case "-c": {
+					switch (choice2) {
+						case "-re1": {
+							DataReceiver dataReceiver = generateData(path);
+							DataGenerator dataGenerator = new DataGenerator(new DataConsolePrinter(dataReceiver));
+							dataGenerator.generateEmployeeBasicRaport();
+							break;
+						}
+						case "-rp2": {
+							DataReceiver dataReceiver = generateData(path);
+							DataGenerator dataGenerator = new DataGenerator(new DataConsolePrinter(dataReceiver));
+							dataGenerator.generateProjectBasicRaport();
+							break;
+						}
+						case "-re3": {
+							DataReceiver dataReceiver = generateData(path);
+							DataGenerator dataGenerator = new DataGenerator(new DataConsolePrinter(dataReceiver));
+							dataGenerator.generateEmployeeAdvancedRaport();
+							break;
+						}
+						case "-rp4": {
+							DataReceiver dataReceiver = generateData(path);
+							DataGenerator dataGenerator = new DataGenerator(new DataConsolePrinter(dataReceiver));
+							dataGenerator.generateProjectAdvancedRaport();
+							break;
+						}
+					}
+				}
+				case "-xls": {
+					switch (choice2) {
+						case "-re1": {
+							DataReceiver dataReceiver = generateData(path);
+							DataGenerator dataGenerator = new DataGenerator(new DataExcelGenerator(dataReceiver));
+							dataGenerator.generateEmployeeBasicRaport();
+							break;
+						}
+						case "-rp2": {
+							DataReceiver dataReceiver = generateData(path);
+							DataGenerator dataGenerator = new DataGenerator(new DataExcelGenerator(dataReceiver));
+							dataGenerator.generateProjectBasicRaport();
+							break;
+						}
+						case "-re3": {
+							DataReceiver dataReceiver = generateData(path);
+							DataGenerator dataGenerator = new DataGenerator(new DataExcelGenerator(dataReceiver));
+							dataGenerator.generateEmployeeAdvancedRaport();
+							break;
+					}
+						case "-rp4": {
+							DataReceiver dataReceiver = generateData(path);
+							DataGenerator dataGenerator = new DataGenerator(new DataExcelGenerator(dataReceiver));
+							dataGenerator.generateProjectAdvancedRaport();
+							break;
+						}
+					}
+				}				
 			case "-h": {
-				printHelp();
+				//printHelp();
 				break;
 			}
 			case "-v": {
@@ -61,13 +99,12 @@ class Main {
 				break;
 			}
 			default:
-				printHelp();
+				//printHelp();
 			}
-
-		} catch (Exception e) {
-			printHelp();
-		}
+	} catch (Exception e) {
+		printHelp();
 	}
+}
 
 	public static void printVersion() {
 		System.out.println("0.0.1");
