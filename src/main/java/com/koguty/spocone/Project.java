@@ -19,7 +19,6 @@ public class Project {
         return name;
     }
 
-    //wyciagam z tad wszystkich uczestnikow
     public Set<Employee> getParticipants() {
         return taskList.stream()
                 .map(Task::getTaskContractor)

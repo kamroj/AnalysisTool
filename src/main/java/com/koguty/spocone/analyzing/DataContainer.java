@@ -40,11 +40,11 @@ public class DataContainer implements DataReceiver{
         return projects;
     }
 
-    public boolean hasProject(String sheetName) {
+    boolean hasProject(String sheetName) {
         return projects.stream().anyMatch(p -> p.getName().equals(sheetName));
     }
 
-    public Project getSpecificProject(String sheetName) {
+    Project getSpecificProject(String sheetName) {
         return projects.stream().filter(p -> p.getName().equals(sheetName)).findFirst().get();
     }
 }

@@ -29,9 +29,9 @@ public class Analizer {
     private Employee employee;
 
 
-    Analizer() { //todo usunąć tylko do debug
+    public Analizer() { //todo usunąć tylko do debug
         this.dataContainer = new DataContainer();
-        paths = new ArrayList<>(Arrays.asList("Kowalski_Jan.xls", "Nowak_Piotr.xls", "target/Kowalski_Jan.xls"));
+        paths = new ArrayList<>(Arrays.asList("Kowalski_Jan.xls", "Nowak_Piotr.xls"));
     }
 
     public Analizer(IPather pather) {
@@ -93,17 +93,20 @@ public class Analizer {
             }
 
             try {
-                float hours = (float) sheet.getRow(currentRowNumber).getCell(WORKING_HOURS_CELL).getNumericCellValue();
-                String taskDescription = sheet.getRow(currentRowNumber).getCell(TASK_DESCRIPTION_CELL).getStringCellValue();
-                Task task = new Task(taskDescription, employee, hours);
-                project.addTask(task);
+                updateProject(sheet, currentRowNumber, project);
                 ++currentRowNumber;
             } catch (IllegalStateException e) {
-                System.out.println("Dupa");
+                System.err.printf("Found error in sheet: %s at row %d\n", sheet.getSheetName(), currentRowNumber);
                 ++currentRowNumber;
-                continue;
             }
         }
+    }
+
+    private void updateProject(HSSFSheet sheet, int currentRowNumber, Project project) {
+        float hours = (float) sheet.getRow(currentRowNumber).getCell(WORKING_HOURS_CELL).getNumericCellValue();
+        String taskDescription = sheet.getRow(currentRowNumber).getCell(TASK_DESCRIPTION_CELL).getStringCellValue();
+        Task task = new Task(taskDescription, employee, hours);
+        project.addTask(task);
     }
 
     private boolean isRowCorrect(HSSFSheet sheet, int currentRowNumber) {
@@ -119,26 +122,5 @@ public class Analizer {
             ex.printStackTrace();
         }
         iterateWorkbook();
-    }
-
-    public static void main(String[] args) {
-        Analizer analizer = new Analizer();
-        DataContainer container = analizer.prepareData();
-        for (Employee employee : container.getEmployeesData()) {
-            System.out.println("\nEMPLOYEE NAME:: " + employee.getPersonalDetails());
-            Map<Project, Float> summaryHoursPerProject = employee.getSummaryHoursPerProject();
-
-            for (Project project : summaryHoursPerProject.keySet()) {
-                System.out.println("PROJECT NAME:: " + project.getName());
-                System.out.println("SUMMARY HOURS:: " + summaryHoursPerProject.get(project));
-            }
-        }
-
-        List<Project> projectData = container.getProjectData();
-        for (Project project : projectData) {
-            for (Task task : project.getTaskList()) {
-                System.out.println(project.getName() + " " + task.getTaskDescription());
-            }
-        }
     }
 }

@@ -28,27 +28,6 @@ public class Employee {
         return projects;
     }
 
-    public Map<Project, Float> getSummaryHoursPerProject() {
-        if(projects == null)
-            return Collections.emptyMap();
-
-        Map<Project, Float> workingData = new HashMap<>();
-
-        for (Project project: projects) {
-            Float summaryHours = project.getSummaryParticipantHours(this);
-
-            if (workingData.containsKey(project)) {
-                Float currentHours = workingData.get(project);
-                currentHours += summaryHours;
-                workingData.put(project, currentHours);
-            } else {
-                workingData.put(project, summaryHours);
-            }
-        }
-
-        return workingData;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
