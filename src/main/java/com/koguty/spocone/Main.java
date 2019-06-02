@@ -21,20 +21,34 @@ class Main {
 			try {
 				path = args[1];
 			} catch (Exception e) {
-				System.out.println("invalid path");
+				System.out.println("Specify path");
 			}
 
 			choice = args[0];
 
 			switch (choice) {
-			case "-r1": {
+			case "-re1": {
 				DataReceiver dataReceiver = generateData(path);
 				DataGenerator dataGenerator = new DataGenerator(new DataConsolePrinter(dataReceiver));
 				dataGenerator.generateEmployeeAdvancedRaport();
 				break;
 			}
-			case "-r2": {
-				// printRaport2();
+			case "-rp2": {
+				DataReceiver dataReceiver = generateData(path);
+				DataGenerator dataGenerator = new DataGenerator(new DataConsolePrinter(dataReceiver));
+				dataGenerator.generateProjectBasicRaport();
+				break;
+			}
+			case "-re3": {
+				DataReceiver dataReceiver = generateData(path);
+				DataGenerator dataGenerator = new DataGenerator(new DataConsolePrinter(dataReceiver));
+				dataGenerator.generateEmployeeAdvancedRaport();
+				break;
+			}
+			case "-rp4": {
+				DataReceiver dataReceiver = generateData(path);
+				DataGenerator dataGenerator = new DataGenerator(new DataConsolePrinter(dataReceiver));
+				dataGenerator.generateProjectAdvancedRaport();
 				break;
 			}
 			case "-h": {
@@ -57,7 +71,7 @@ class Main {
 	}
 
 	public static void printHelp() {
-		System.out.println("help");
+		System.out.println("[-v] [-h] [-re1] [-rp2] [-re3] [-rp4]");
 	}
 
 	private static DataReceiver generateData(String path) {
