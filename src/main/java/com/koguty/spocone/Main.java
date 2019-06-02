@@ -11,35 +11,71 @@ import com.koguty.spocone.pather.Pather;
 import java.io.FileNotFoundException;
 
 class Main {
-    public static void main(String[] args) {
-        printWelcomoLogo();
+	public static void main(String[] args) {
 
-        String path = "/home/kamil/Kod/AnalysisTool";
-        DataReceiver dataReceiver = generateData(path);
-        //DataReceiver dataReceiver = new Analizer().prepareData();
+		printWelcomeLogo();
+		String choice = null;
+		String path = null;
 
-        DataGenerator dataGenerator = new DataGenerator(new DataConsolePrinter(dataReceiver));
-        dataGenerator.generateEmployeeAdvancedRaport();
+		try {
+			try {
+				path = args[1];
+			} catch (Exception e) {
+				System.out.println("invalid path");
+			}
 
-        //printRaport(path);
-        //printRaport(args[0]);
-    }
+			choice = args[0];
 
-    private static DataReceiver generateData(String path) {
-        Pather pather = null;
-        try {
-            pather = new Pather(path);
-        } catch (FileNotFoundException e) {
-            System.err.println(".xls files not found !");;
-        }
-        Analizer analizer = new Analizer(pather);
-        return analizer.prepareData();
-    }
+			switch (choice) {
+			case "-r1": {
+				DataReceiver dataReceiver = generateData(path);
+				DataGenerator dataGenerator = new DataGenerator(new DataConsolePrinter(dataReceiver));
+				dataGenerator.generateEmployeeAdvancedRaport();
+				break;
+			}
+			case "-r2": {
+				// printRaport2();
+				break;
+			}
+			case "-h": {
+				printHelp();
+				break;
+			}
+			case "-v": {
+				printVersion();
+				break;
+			}
+			}
 
-    private static void printWelcomoLogo() {
-        System.out.println("*************************");
-        System.out.println("*****   Welcome in  *****");
-        System.out.println("***** Analysis Tool *****");
-        System.out.println("*************************");
-    }
+		} catch (Exception e) {
+			printHelp();
+		}
+	}
+
+	public static void printVersion() {
+		System.out.println("0.0.1");
+	}
+
+	public static void printHelp() {
+		System.out.println("help");
+	}
+
+	private static DataReceiver generateData(String path) {
+		Pather pather = null;
+		try {
+			pather = new Pather(path);
+		} catch (FileNotFoundException e) {
+			System.err.println(".xls files not found !");
+			;
+		}
+		Analizer analizer = new Analizer(pather);
+		return analizer.prepareData();
+	}
+
+	private static void printWelcomeLogo() {
+		System.out.println("*************************");
+		System.out.println("*****   Welcome in  *****");
+		System.out.println("***** Analysis Tool *****");
+		System.out.println("*************************");
+	}
 }
