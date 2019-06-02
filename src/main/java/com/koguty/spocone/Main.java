@@ -132,7 +132,7 @@ class Main {
 	}
 
 	public static void printHelp() {
-		System.out.println("\n[-v] [-h] [-re1 <path>] [-rp2 <path>] [-re3 <path>] [-rp4 <path>] \n\n"
+		System.out.println("\nExamples: [-v] [-h] [<path> -c -re1] [<path> -xls -rp2] [<path> -c -re3] [<path> -c -rp4] \n\n"
 				+ "re1 - Tworzenie raportu 1 - Osoba+godziny pracy we wszystkich projektach \n"
 				+ "rp2 - Tworzenie raportu 2 - Projekt+godziny pracy wszystkich programistów \n"
 				+ "re3 - Tworzenie raportu 1+3 - Osoba+godziny pracy w danych projektach \n"
