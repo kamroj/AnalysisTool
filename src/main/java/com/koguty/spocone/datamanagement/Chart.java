@@ -9,6 +9,7 @@ import java.util.List;
 import java.util.Set;
 
 import org.knowm.xchart.demo.charts.ExampleChart;
+import org.knowm.xchart.demo.charts.pie.PieChart02;
 import org.knowm.xchart.PieChart;
 import org.knowm.xchart.PieChartBuilder;
 import org.knowm.xchart.PieSeries.PieSeriesRenderStyle;
@@ -32,11 +33,7 @@ public class Chart implements ExampleChart<PieChart> {
 	 
 	    // Create Chart
 	    PieChart chart = new PieChartBuilder().width(800).height(600).title(getClass().getSimpleName()).build();
-	 
-	    // Customize Chart
-	    Color[] sliceColors = new Color[] { new Color(224, 68, 14), new Color(230, 105, 62), new Color(236, 143, 110), new Color(243, 180, 159), new Color(246, 199, 182) };
-	    chart.getStyler().setSeriesColors(sliceColors);
-	 
+ 
 	    // Series
 	    chart.addSeries("Gold", 24);
 	    chart.addSeries("Silver", 21);
@@ -46,4 +43,4 @@ public class Chart implements ExampleChart<PieChart> {
 	 
 	    return chart;
 	  }
-
+}
