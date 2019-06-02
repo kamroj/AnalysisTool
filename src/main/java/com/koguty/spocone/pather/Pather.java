@@ -46,7 +46,7 @@ public class Pather implements IPather {
 
     @Override
     public List<String> getPatchList() {
-    	System.out.println(getScope() + "z klasy");
+    	System.out.println(getScope());
         return patchList;
     }
 
