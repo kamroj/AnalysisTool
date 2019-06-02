@@ -28,6 +28,14 @@ public class Employee {
         return projects;
     }
 
+    public float getTotalHoursInAllProject() {
+        float totalHours = 0;
+        for (Project project: projects) {
+            totalHours += project.getSummaryParticipantHours(this);
+        }
+        return totalHours;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

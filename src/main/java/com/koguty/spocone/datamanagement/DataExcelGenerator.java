@@ -63,6 +63,12 @@ public class DataExcelGenerator implements IDataGenerator {
         HSSFSheet sheet = workbook.getSheetAt(0);
         Set<Employee> employeesData = dataReceiver.getEmployeesData();
 
+        HSSFRow row = sheet.createRow(0);
+        row.createCell(0).setCellValue("EMPLOYEE");
+        row.createCell(1).setCellValue("PROJECT");
+        row.createCell(2).setCellValue("TOTAL HOURS");
+        row.createCell(3).setCellValue("PERCENT");
+
         for (Employee employee : employeesData) {
             fillAdvancedEmployeeRaport(employee, sheet);
             rowCounter++;
@@ -72,15 +78,12 @@ public class DataExcelGenerator implements IDataGenerator {
     }
 
     private void fillAdvancedEmployeeRaport(Employee employee, HSSFSheet sheet) {
-        HSSFRow row = sheet.createRow(rowCounter);
-        row.createCell(0).setCellValue("Employee name: ");
-        row.createCell(1).setCellValue(employee.getPersonalDetails());
-        rowCounter++;
-
         for (Project project : employee.getProjects()) {
-            row = sheet.createRow(rowCounter);
-            row.createCell(0).setCellValue(project.getName());
-            row.createCell(1).setCellValue(project.getSummaryParticipantHours(employee));
+            HSSFRow row = sheet.createRow(rowCounter);
+            row.createCell(0).setCellValue(employee.getPersonalDetails());
+            row.createCell(1).setCellValue(project.getName());
+            row.createCell(2).setCellValue(project.getSummaryParticipantHours(employee));
+            row.createCell(3).setCellValue(project.getSummaryParticipantHours(employee)/employee.getTotalHoursInAllProject());
             rowCounter++;
         }
     }

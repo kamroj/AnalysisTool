@@ -21,6 +21,7 @@ public class DataConsolePrinter implements IDataGenerator {
     @Override
     public void generateEmployeeBasicRaport() {
         System.out.println("GENERATING EMPLOYEE BASIC RAPORT!");
+        System.out.println("\nEMPLOYE NAME | TOTAL HOURS");
         Set<Employee> employeesData = dataReceiver.getEmployeesData();
 
         for (Employee employee : employeesData) {
@@ -29,19 +30,18 @@ public class DataConsolePrinter implements IDataGenerator {
     }
 
     private void printEmployeeBasicRaport(Employee employee) {
-        System.out.printf("\nEmployee: %s \n", employee.getPersonalDetails());
         int hoursSummary = 0;
 
         for (Project project : employee.getProjects()) {
             hoursSummary += project.getSummaryParticipantHours(employee);
         }
-
-        System.out.println("Total working hours: " + hoursSummary);
+        System.out.println(employee.getPersonalDetails() + " | " + hoursSummary);
     }
 
     @Override
     public void generateEmployeeAdvancedRaport() {
         System.out.println("GENERATING EMPLOYEE ADVANCED RAPORT!");
+        System.out.println("EMPLOYEE | PROJECT | TOTAL WORKING HOURS | PERCENT");
         Set<Employee> employeesData = dataReceiver.getEmployeesData();
 
         for (Employee employee : employeesData) {
@@ -50,16 +50,16 @@ public class DataConsolePrinter implements IDataGenerator {
     }
 
     private void printEmployeeAdvancedRaport(Employee employee) {
-        System.out.printf("\nEmployee: %s \n", employee.getPersonalDetails());
         for (Project project : employee.getProjects()) {
-            System.out.printf("Project: %s Total hours: %s\n", project.getName(),
-                    project.getSummaryParticipantHours(employee));
+            System.out.printf("%s | %s | %.02f | %.02f\n", employee.getPersonalDetails(), project.getName(),
+                    project.getSummaryParticipantHours(employee), (project.getSummaryParticipantHours(employee)/employee.getTotalHoursInAllProject()));
         }
     }
 
     @Override
     public void generateProjectBasicRaport() {
         System.out.println("GENERATING PROJECT BASIC RAPORT!");
+        System.out.println("PROJECT | TOTAL WORKING HOURS");
         List<Project> projectData = dataReceiver.getProjectData();
 
         for (Project project: projectData) {
@@ -68,18 +68,17 @@ public class DataConsolePrinter implements IDataGenerator {
     }
 
     private void printProjectBasicRaport(Project project) {
-        System.out.printf("\nProject: %s\n\n", project.getName());
         int hoursSummary = 0;
         for (Task task : project.getTaskList()) {
             hoursSummary += task.getDuration();
         }
 
-        System.out.println("Total hours: " + hoursSummary);
+        System.out.println(project.getName() + " | " + hoursSummary);
     }
 
     @Override
     public void generateProjectAdvancedRaport() {
-        System.out.println("GENERATING PROJECT ADVANCED RAPORT!");
+        System.out.println("PROJECT | EMPLOYEE | TOTAL WORKING HOURS | PERCENT");
         List<Project> projectData = dataReceiver.getProjectData();
 
         for (Project project: projectData) {
@@ -88,12 +87,9 @@ public class DataConsolePrinter implements IDataGenerator {
     }
 
     private void printProjectAdvancedRaport(Project project) {
-        System.out.printf("\nProject: %s\n\n", project.getName());
-        for (Task task : project.getTaskList()) {
-            System.out.println("Task: " + task.getTaskDescription());
-            System.out.println("Done by: " + task.getTaskContractor().getPersonalDetails());
-            System.out.println("Date: " + task.getDate());
-            System.out.printf("In %.2f hours\n\n", task.getDuration());
+        for (Employee employee : project.getParticipants()) {
+            System.out.printf("%s | %s | %f.2 | %f.2", project.getName(), employee.getPersonalDetails(),
+                    project.getSummaryParticipantHours(employee), (project.getSummaryParticipantHours(employee)/project.getSummaryProjectHours()));
         }
     }
 }

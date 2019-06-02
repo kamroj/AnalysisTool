@@ -2,6 +2,7 @@ package com.koguty.spocone;
 
 import com.koguty.spocone.analyzing.Analizer;
 import com.koguty.spocone.analyzing.DataReceiver;
+import com.koguty.spocone.datamanagement.DataConsolePrinter;
 import com.koguty.spocone.datamanagement.DataExcelGenerator;
 import com.koguty.spocone.datamanagement.DataGenerator;
 import com.koguty.spocone.pather.Pather;
@@ -13,13 +14,6 @@ class Main {
 
 		printWelcomeLogo();
 		String path = null;
-
-		//Scanner scanner = new Scanner(System.in);
-		//System.out.print("Give path: ");
-		//String userInput = scanner.nextLine();
-		//String[] s = userInput.split(" ");
-		//path = s[0];
-///home/kamil/Kod/AnalysisTool/reporter-dane
 		String choice = null;
 
 		try {
@@ -34,25 +28,25 @@ class Main {
 			switch (choice) {
 				case "-re1": {
 					DataReceiver dataReceiver = generateData(path);
-					DataGenerator dataGenerator = new DataGenerator(new DataExcelGenerator(dataReceiver));
+					DataGenerator dataGenerator = new DataGenerator(new DataConsolePrinter(dataReceiver));
 					dataGenerator.generateEmployeeBasicRaport();
 					break;
 				}
 				case "-rp2": {
 					DataReceiver dataReceiver = generateData(path);
-					DataGenerator dataGenerator = new DataGenerator(new DataExcelGenerator(dataReceiver));
+					DataGenerator dataGenerator = new DataGenerator(new DataConsolePrinter(dataReceiver));
 					dataGenerator.generateProjectBasicRaport();
 					break;
 				}
 				case "-re3": {
 					DataReceiver dataReceiver = generateData(path);
-					DataGenerator dataGenerator = new DataGenerator(new DataExcelGenerator(dataReceiver));
+					DataGenerator dataGenerator = new DataGenerator(new DataConsolePrinter(dataReceiver));
 					dataGenerator.generateEmployeeAdvancedRaport();
 					break;
 				}
 				case "-rp4": {
 					DataReceiver dataReceiver = generateData(path);
-					DataGenerator dataGenerator = new DataGenerator(new DataExcelGenerator(dataReceiver));
+					DataGenerator dataGenerator = new DataGenerator(new DataConsolePrinter(dataReceiver));
 					dataGenerator.generateProjectAdvancedRaport();
 					break;
 				}
@@ -71,56 +65,6 @@ class Main {
 		} catch (Exception e) {
 			printHelp();
 		}
-//		String filter = null;
-
-//		try {
-//			try {
-//				path = args[1];
-//			} catch (Exception e) {
-//			}
-//			choice = args[0];
-////			filter = args[2];
-//
-//			switch (choice) {
-//			case "-re1": {
-//				DataReceiver dataReceiver = generateData(path);
-//				DataGenerator dataGenerator = new DataGenerator(new DataConsolePrinter(dataReceiver));
-//				dataGenerator.generateEmployeeBasicRaport();
-//				break;
-//			}
-//			case "-rp2": {
-//				DataReceiver dataReceiver = generateData(path);
-//				DataGenerator dataGenerator = new DataGenerator(new DataConsolePrinter(dataReceiver));
-//				dataGenerator.generateProjectBasicRaport();
-//				break;
-//			}
-//			case "-re3": {
-//				DataReceiver dataReceiver = generateData(path);
-//				DataGenerator dataGenerator = new DataGenerator(new DataConsolePrinter(dataReceiver));
-//				dataGenerator.generateEmployeeAdvancedRaport();
-//				break;
-//			}
-//			case "-rp4": {
-//				DataReceiver dataReceiver = generateData(path);
-//				DataGenerator dataGenerator = new DataGenerator(new DataConsolePrinter(dataReceiver));
-//				dataGenerator.generateProjectAdvancedRaport();
-//				break;
-//			}
-//			case "-h": {
-//				printHelp();
-//				break;
-//			}
-//			case "-v": {
-//				printVersion();
-//				break;
-//			}
-//			default:
-//				printHelp();
-//			}
-//
-//		} catch (Exception e) {
-//			printHelp();
-//		}
 	}
 
 	public static void printVersion() {
