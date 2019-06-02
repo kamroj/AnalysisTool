@@ -5,9 +5,11 @@ import com.koguty.spocone.analyzing.DataReceiver;
 import com.koguty.spocone.datamanagement.DataConsolePrinter;
 import com.koguty.spocone.datamanagement.DataExcelGenerator;
 import com.koguty.spocone.datamanagement.IDataGenerator;
+import com.koguty.spocone.datamanagement.PdfCreator;
 import com.koguty.spocone.pather.Pather;
 
 import java.io.FileNotFoundException;
+import java.io.IOException;
 
 class Main {
     public static void main(String[] args) {
@@ -23,9 +25,56 @@ class Main {
                     break;
                 case "-xls":
                     generate(args[2], new DataExcelGenerator(dataReceiver));
+                    break;
+                case "-p":
+                    generatePdf(args[2], new DataExcelGenerator(dataReceiver));
                 default:
                     break;
             }
+        }
+    }
+
+    private static void generatePdf(String arg, IDataGenerator dataGenerator) {
+        switch (arg) {
+            case "-re1":
+                dataGenerator.generateEmployeeBasicRaport();
+                PdfCreator pdfCreator = new PdfCreator();
+                try {
+                    pdfCreator.createPDF("basic_employee_raport.xls");
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                break;
+            case "-rp2":
+                dataGenerator.generateProjectBasicRaport();
+                pdfCreator = new PdfCreator();
+                try {
+                    pdfCreator.createPDF("basic_project_raport.xls");
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                break;
+            case "-re3":
+                dataGenerator.generateEmployeeAdvancedRaport();
+                pdfCreator = new PdfCreator();
+                try {
+                    pdfCreator.createPDF("advanced_employee_raport.xls");
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                break;
+            case "-rp4":
+                dataGenerator.generateProjectAdvancedRaport();
+                dataGenerator.generateEmployeeAdvancedRaport();
+                pdfCreator = new PdfCreator();
+                try {
+                    pdfCreator.createPDF("advanced_project_raport.xls");
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                break;
+            default:
+                break;
         }
     }
 
