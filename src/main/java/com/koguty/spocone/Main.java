@@ -24,85 +24,87 @@ class Main {
 		try {
 			try {
 				path = args[0];
+				choice = args[1];
+				choice2 = args[2];
 			} catch (Exception e) {
+				System.out.println("");
 			}
-			choice = args[1];
-			choice2 = args[2];
-//			filter = args[2];
-		
+				
+			switch (path) {	
+				case "-v": {
+					printVersion();
+					break;
+				}
+				case "-h": {
+					printHelp();
+					break;
+				} default:  {
 			
+					switch (choice) {		
 			
-			switch (choice) {	
-			
-				case "-c": {
-					switch (choice2) {
-						case "-re1": {
-							DataReceiver dataReceiver = generateData(path);
-							DataGenerator dataGenerator = new DataGenerator(new DataConsolePrinter(dataReceiver));
-							dataGenerator.generateEmployeeBasicRaport();
-							break;
+						case "-c": {
+						switch (choice2) {
+							case "-re1": {
+								DataReceiver dataReceiver = generateData(path);
+								DataGenerator dataGenerator = new DataGenerator(new DataConsolePrinter(dataReceiver));
+								dataGenerator.generateEmployeeBasicRaport();
+								break;
+							}
+							case "-rp2": {
+								DataReceiver dataReceiver = generateData(path);
+								DataGenerator dataGenerator = new DataGenerator(new DataConsolePrinter(dataReceiver));
+								dataGenerator.generateProjectBasicRaport();
+								break;
+							}
+							case "-re3": {
+								DataReceiver dataReceiver = generateData(path);
+								DataGenerator dataGenerator = new DataGenerator(new DataConsolePrinter(dataReceiver));
+								dataGenerator.generateEmployeeAdvancedRaport();
+								break;
+							}
+							case "-rp4": {
+								DataReceiver dataReceiver = generateData(path);
+								DataGenerator dataGenerator = new DataGenerator(new DataConsolePrinter(dataReceiver));
+								dataGenerator.generateProjectAdvancedRaport();
+								break;
+							}
 						}
-						case "-rp2": {
-							DataReceiver dataReceiver = generateData(path);
-							DataGenerator dataGenerator = new DataGenerator(new DataConsolePrinter(dataReceiver));
-							dataGenerator.generateProjectBasicRaport();
-							break;
+					}
+					case "-xls": {
+						switch (choice2) {
+							case "-re1": {
+								DataReceiver dataReceiver = generateData(path);
+								DataGenerator dataGenerator = new DataGenerator(new DataExcelGenerator(dataReceiver));
+								dataGenerator.generateEmployeeBasicRaport();
+								break;
+							}
+							case "-rp2": {
+								DataReceiver dataReceiver = generateData(path);
+								DataGenerator dataGenerator = new DataGenerator(new DataExcelGenerator(dataReceiver));
+								dataGenerator.generateProjectBasicRaport();
+								break;
+							}
+							case "-re3": {
+								DataReceiver dataReceiver = generateData(path);
+								DataGenerator dataGenerator = new DataGenerator(new DataExcelGenerator(dataReceiver));
+								dataGenerator.generateEmployeeAdvancedRaport();
+								break;
 						}
-						case "-re3": {
-							DataReceiver dataReceiver = generateData(path);
-							DataGenerator dataGenerator = new DataGenerator(new DataConsolePrinter(dataReceiver));
-							dataGenerator.generateEmployeeAdvancedRaport();
-							break;
+							case "-rp4": {
+								DataReceiver dataReceiver = generateData(path);
+								DataGenerator dataGenerator = new DataGenerator(new DataExcelGenerator(dataReceiver));
+								dataGenerator.generateProjectAdvancedRaport();
+								break;
+							}
 						}
-						case "-rp4": {
-							DataReceiver dataReceiver = generateData(path);
-							DataGenerator dataGenerator = new DataGenerator(new DataConsolePrinter(dataReceiver));
-							dataGenerator.generateProjectAdvancedRaport();
-							break;
-						}
+					}				
+
 					}
 				}
-				case "-xls": {
-					switch (choice2) {
-						case "-re1": {
-							DataReceiver dataReceiver = generateData(path);
-							DataGenerator dataGenerator = new DataGenerator(new DataExcelGenerator(dataReceiver));
-							dataGenerator.generateEmployeeBasicRaport();
-							break;
-						}
-						case "-rp2": {
-							DataReceiver dataReceiver = generateData(path);
-							DataGenerator dataGenerator = new DataGenerator(new DataExcelGenerator(dataReceiver));
-							dataGenerator.generateProjectBasicRaport();
-							break;
-						}
-						case "-re3": {
-							DataReceiver dataReceiver = generateData(path);
-							DataGenerator dataGenerator = new DataGenerator(new DataExcelGenerator(dataReceiver));
-							dataGenerator.generateEmployeeAdvancedRaport();
-							break;
-					}
-						case "-rp4": {
-							DataReceiver dataReceiver = generateData(path);
-							DataGenerator dataGenerator = new DataGenerator(new DataExcelGenerator(dataReceiver));
-							dataGenerator.generateProjectAdvancedRaport();
-							break;
-						}
-					}
-				}				
-			case "-h": {
-				//printHelp();
-				break;
 			}
-			case "-v": {
-				printVersion();
-				break;
-			}
-			default:
-				//printHelp();
-			}
+
 	} catch (Exception e) {
-		printHelp();
+		//printHelp();
 	}
 }
 
