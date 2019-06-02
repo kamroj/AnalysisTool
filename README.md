@@ -1,10 +1,11 @@
 # AnalysisTool
 > Program do analizy i zliczania nakładu pracy.
-[![Build Status](https://travis-ci.org/kamroj/AnalysisTool.svg?branch=develop)](https://travis-ci.org/kamroj/AnalysisTool)
+[![Build Status](https://travis-ci.org/kamroj/AnalysisTool.svg?branch=mergin-work)](https://travis-ci.org/kamroj/AnalysisTool)
 
 ## Spis treści
 * [Podstawowe informacje](#podstawowe-informacje)
 * [Technologie](#technologie)
+* [Pomoc](#pomoc)
 * [Przykłady użycia](#przykłady-użycia)
 * [Funkcje](#funkcje)
 * [Status](#status)
@@ -18,19 +19,38 @@ Raporty tworzone zawierają wyszczególnienie ilości godzin danego pracownika n
 ## Technologie
 * Java - version 1.8
 
+## Pomoc
+W pierwszej kolejności klient podaje ścieżkę do folderu z danymi, czyli plikami Excel.
+
+W drugiej kolejności po spacji klient podaje parametr rodzaju wydruku:
+* -c - Tworzenie raportu w konsoli
+* -xls - Tworzenie raportu do pliku Excel
+
+W trzeciej kolejności po spacji klient podaje parametr raportu do utworzenia:
+* -re1 - Tworzenie raportu 1 - Osoba+godziny pracy we wszystkich projektach
+* -rp2 - Tworzenie raportu 2 - Projekt+godziny pracy wszystkich programistów
+* -re3 - Tworzenie raportu 1+3 - Osoba+godziny pracy w danych projektach
+* -rp4 - Tworzenie raportu 2+4 - Szczegółowy raport dla projektów
+
 ## Przykłady użycia
-Klient poprzez interfejs wybiera opcje.
+* Give path: C:\Users\student7\Downloads\Pracownia projektowa BK\AnalysisTool\reporter-dane -c -re1
+* Give path: C:\Users\student7\Downloads\Pracownia projektowa BK\AnalysisTool\reporter-dane -xls -rp2
+* Give path: C:\Users\student7\Downloads\Pracownia projektowa BK\AnalysisTool\reporter-dane -xls -re3
+* Give path: C:\Users\student7\Downloads\Pracownia projektowa BK\AnalysisTool\reporter-dane -c -rp4
 
 ## Funkcje
-Lista funkcji do zrobienia:
-* Tworzenie raportu 1 (Osoba+godziny pracy we wszystkich projektach)
-* Tworzenie raportu 2 (Projekt+godziny pracy wszystkich programistów)
-* Tworzenie raportu 1+3 (Osoba+godziny pracy w danym projekcie)
+Lista funkcji gotowych:
+* Tworzenie raportu 1 - Osoba+godziny pracy we wszystkich projektach
+* Tworzenie raportu 2 - Projekt+godziny pracy wszystkich programistów
+* Tworzenie raportu 1+3 - Osoba+godziny pracy w danych projektach
+* Tworzenie raportu 2+4 - Szczegółowy raport dla projektów
+* Filtrowanie po latach oraz miesiącach.
 
 Do zaimplementowania w przyszłości:
-* Filtrowanie wyszukiwania danych, np wybór kontkretnego projektu
-* Raport 5: sumowanie godzin zadania
+* Raport 5 - Zadania+ilość godzin spędzonych nad zadaniem
+* Filtrowanie wyszukiwania danych po wyborze konkretnego projektu
 * Wykresy
+* Zapis do pliku PDF
 
 ## Status
 Projekt: w trakcie budowy.
