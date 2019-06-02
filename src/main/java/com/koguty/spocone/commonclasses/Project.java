@@ -35,9 +35,17 @@ public class Project {
 
     public Float getSummaryParticipantHours(Employee employee) {
         float hours = 0;
-        for (Task task: taskList) {
+        for (Task task : taskList) {
             if (task.getTaskContractor().equals(employee))
                 hours += task.getDuration();
+        }
+        return hours;
+    }
+
+    public Float getSummaryProjectHours() {
+        float hours = 0;
+        for (Task task : taskList) {
+            hours += task.getDuration();
         }
         return hours;
     }

@@ -4,6 +4,7 @@ import com.koguty.spocone.analyzing.Analizer;
 import com.koguty.spocone.analyzing.DataContainer;
 import com.koguty.spocone.analyzing.DataReceiver;
 import com.koguty.spocone.datamanagement.DataConsolePrinter;
+import com.koguty.spocone.datamanagement.DataExcelGenerator;
 import com.koguty.spocone.datamanagement.DataGenerator;
 import com.koguty.spocone.datamanagement.IDataGenerator;
 import com.koguty.spocone.pather.Pather;
@@ -18,8 +19,8 @@ class Main {
         DataReceiver dataReceiver = generateData(path);
         //DataReceiver dataReceiver = new Analizer().prepareData();
 
-        DataGenerator dataGenerator = new DataGenerator(new DataConsolePrinter(dataReceiver));
-        dataGenerator.generateEmployeeAdvancedRaport();
+        DataGenerator dataGenerator = new DataGenerator(new DataExcelGenerator(dataReceiver));
+        dataGenerator.generateProjectAdvancedRaport();
 
         //printRaport(path);
         //printRaport(args[0]);
