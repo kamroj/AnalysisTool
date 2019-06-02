@@ -20,7 +20,7 @@ Raporty tworzone zawierają wyszczególnienie ilości godzin danego pracownika n
 * Java - version 1.8
 
 ## Pomoc
-# Konsola
+### Konsola
 W pierwszej kolejności klient podaje ścieżkę do folderu z danymi, czyli plikami Excel.
 
 W drugiej kolejności po spacji klient podaje parametr rodzaju wydruku:
@@ -34,17 +34,17 @@ W trzeciej kolejności po spacji klient podaje parametr raportu do utworzenia:
 * -re3 - Tworzenie raportu 1+3 - Osoba+godziny pracy w danych projektach
 * -rp4 - Tworzenie raportu 2+4 - Szczegółowy raport dla projektów
 
-# Plik wykonywalny JAR
+### Plik wykonywalny JAR
 Gotowy wykonywalny plik JAR do użycia w konsoli systemowej oraz w programie zewnętrznym 
 
 ## Przykłady użycia
-# Konsola
+### Konsola
 * Give path: C:\Users\student7\Downloads\Pracownia projektowa BK\AnalysisTool\reporter-dane -c -re1
 * Give path: C:\Users\student7\Downloads\Pracownia projektowa BK\AnalysisTool\reporter-dane -xls -rp2
 * Give path: C:\Users\student7\Downloads\Pracownia projektowa BK\AnalysisTool\reporter-dane -p -re3
 * Give path: C:\Users\student7\Downloads\Pracownia projektowa BK\AnalysisTool\reporter-dane -c -rp4
 
-# Plik wykonywalny JAR
+### Plik wykonywalny JAR
 * java -jar C:\Users\student7\Downloads\Pracownia projektowa BK\AnalysisTool\AnalysisTool.jar -c -rp2
 * java -jar C:\Users\student7\Downloads\Pracownia projektowa BK\AnalysisTool\AnalysisTool.jar -p -re1
 * java -jar C:\Users\student7\Downloads\Pracownia projektowa BK\AnalysisTool\AnalysisTool.jar -xls -rp4
