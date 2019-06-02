@@ -1,16 +1,12 @@
 package com.koguty.spocone;
 
 import com.koguty.spocone.analyzing.Analizer;
-import com.koguty.spocone.analyzing.DataContainer;
 import com.koguty.spocone.analyzing.DataReceiver;
-import com.koguty.spocone.datamanagement.DataConsolePrinter;
 import com.koguty.spocone.datamanagement.DataExcelGenerator;
 import com.koguty.spocone.datamanagement.DataGenerator;
-import com.koguty.spocone.datamanagement.IDataGenerator;
 import com.koguty.spocone.pather.Pather;
 
 import java.io.FileNotFoundException;
-import java.util.Scanner;
 
 class Main {
 	public static void main(String[] args) {
@@ -18,20 +14,20 @@ class Main {
 		printWelcomeLogo();
 		String path = null;
 
-		Scanner scanner = new Scanner(System.in);
-		System.out.print("Give path: ");
-		String userInput = scanner.nextLine();
-		String[] s = userInput.split(" ");
-		path = s[0];
-
+		//Scanner scanner = new Scanner(System.in);
+		//System.out.print("Give path: ");
+		//String userInput = scanner.nextLine();
+		//String[] s = userInput.split(" ");
+		//path = s[0];
+///home/kamil/Kod/AnalysisTool/reporter-dane
 		String choice = null;
 
 		try {
 			try {
-				path = args[1];
+				path = args[0];
 			} catch (Exception e) {
 			}
-			choice = s[1];
+			choice = args[1];
 			System.out.println(choice);
 //			filter = args[2];
 
