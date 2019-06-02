@@ -1,4 +1,4 @@
-package com.koguty.spocone;
+package com.koguty.spocone.commonclasses;
 
 /**
  * @author Kamil Rojek

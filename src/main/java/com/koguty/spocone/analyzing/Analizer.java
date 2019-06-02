@@ -1,9 +1,9 @@
 package com.koguty.spocone.analyzing;
 
-import com.koguty.spocone.Employee;
-import com.koguty.spocone.InvalidWorkingDataException;
-import com.koguty.spocone.Project;
-import com.koguty.spocone.Task;
+import com.koguty.spocone.commonclasses.Employee;
+import com.koguty.spocone.commonclasses.InvalidWorkingDataException;
+import com.koguty.spocone.commonclasses.Project;
+import com.koguty.spocone.commonclasses.Task;
 import com.koguty.spocone.pather.IPather;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
@@ -13,15 +13,16 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
-import java.util.Map;
 
 /**
  * @author Kamil Rojek
  */
 public class Analizer {
-    private final int WORKING_HOURS_CELL = 2;
+    private final int TASK_DATE_CELL = 0;
     private final int TASK_DESCRIPTION_CELL = 1;
+    private final int WORKING_HOURS_CELL = 2;
 
     private DataContainer dataContainer;
     private List<String> paths;
@@ -103,9 +104,10 @@ public class Analizer {
     }
 
     private void updateProject(HSSFSheet sheet, int currentRowNumber, Project project) {
+        Date date = sheet.getRow(currentRowNumber).getCell(TASK_DATE_CELL).getDateCellValue();
+        String description = sheet.getRow(currentRowNumber).getCell(TASK_DESCRIPTION_CELL).getStringCellValue();
         float hours = (float) sheet.getRow(currentRowNumber).getCell(WORKING_HOURS_CELL).getNumericCellValue();
-        String taskDescription = sheet.getRow(currentRowNumber).getCell(TASK_DESCRIPTION_CELL).getStringCellValue();
-        Task task = new Task(taskDescription, employee, hours);
+        Task task = new Task(description, employee, hours, date);
         project.addTask(task);
     }
 

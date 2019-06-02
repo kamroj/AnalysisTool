@@ -16,9 +16,10 @@ class Main {
 
         String path = "/home/kamil/Kod/AnalysisTool";
         DataReceiver dataReceiver = generateData(path);
+        //DataReceiver dataReceiver = new Analizer().prepareData();
 
         DataGenerator dataGenerator = new DataGenerator(new DataConsolePrinter(dataReceiver));
-        dataGenerator.generateEmployeeRaport();
+        dataGenerator.generateProjectRaport();
 
         //printRaport(path);
         //printRaport(args[0]);

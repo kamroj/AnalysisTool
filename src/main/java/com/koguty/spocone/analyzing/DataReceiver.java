@@ -1,7 +1,7 @@
 package com.koguty.spocone.analyzing;
 
-import com.koguty.spocone.Employee;
-import com.koguty.spocone.Project;
+import com.koguty.spocone.commonclasses.Employee;
+import com.koguty.spocone.commonclasses.Project;
 
 import java.util.List;
 import java.util.Set;

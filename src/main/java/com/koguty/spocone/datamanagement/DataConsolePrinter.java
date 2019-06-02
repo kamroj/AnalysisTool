@@ -1,8 +1,8 @@
 package com.koguty.spocone.datamanagement;
 
-import com.koguty.spocone.Employee;
-import com.koguty.spocone.Project;
-import com.koguty.spocone.Task;
+import com.koguty.spocone.commonclasses.Employee;
+import com.koguty.spocone.commonclasses.Project;
+import com.koguty.spocone.commonclasses.Task;
 import com.koguty.spocone.analyzing.DataReceiver;
 
 import java.util.List;
@@ -51,6 +51,7 @@ public class DataConsolePrinter implements IDataGenerator {
         for (Task task : project.getTaskList()) {
             System.out.println("Task: " + task.getTaskDescription());
             System.out.println("Done by: " + task.getTaskContractor().getPersonalDetails());
+            System.out.println("Date: " + task.getDate());
             System.out.printf("In %.2f hours\n\n", task.getDuration());
         }
     }
