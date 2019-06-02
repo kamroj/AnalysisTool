@@ -1,7 +1,5 @@
 package com.koguty.spocone.datamanagement;
 
-import com.koguty.spocone.analyzing.DataReceiver;
-
 /**
  * @author Kamil Rojek
  */
@@ -12,11 +10,11 @@ public class DataGenerator {
         this.generator = generator;
     }
 
-    public void generateEmployeeRaport() {
-        generator.generateEmployeeRaport();
+    public void generateEmployeeAdvancedRaport() {
+        generator.generateEmployeeAdvancedRaport();
     }
 
-    public void generateProjectRaport() {
-        generator.generateProjectRaport();
+    public void generateProjectAdvancedRaport() {
+        generator.generateProjectAdvancedRaport();
     }
 }

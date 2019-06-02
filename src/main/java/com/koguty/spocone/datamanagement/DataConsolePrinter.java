@@ -19,13 +19,23 @@ public class DataConsolePrinter implements IDataGenerator {
     }
 
     @Override
-    public void generateEmployeeRaport() {
+    public void generateEmployeeBasicRaport() {
+
+    }
+
+    @Override
+    public void generateEmployeeAdvancedRaport() {
         System.out.println("GENERATING EMPLOYEE RAPORT!");
         Set<Employee> employeesData = dataReceiver.getEmployeesData();
 
         for (Employee employee : employeesData) {
             printEmployeeRaport(employee);
         }
+    }
+
+    @Override
+    public void generateProjectBasicRaport() {
+
     }
 
     private void printEmployeeRaport(Employee employee) {
@@ -37,7 +47,7 @@ public class DataConsolePrinter implements IDataGenerator {
     }
 
     @Override
-    public void generateProjectRaport() {
+    public void generateProjectAdvancedRaport() {
         System.out.println("GENERATING PROJECT RAPORT!");
         List<Project> projectData = dataReceiver.getProjectData();
 

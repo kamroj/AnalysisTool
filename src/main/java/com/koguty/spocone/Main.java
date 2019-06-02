@@ -19,7 +19,7 @@ class Main {
         //DataReceiver dataReceiver = new Analizer().prepareData();
 
         DataGenerator dataGenerator = new DataGenerator(new DataConsolePrinter(dataReceiver));
-        dataGenerator.generateProjectRaport();
+        dataGenerator.generateEmployeeAdvancedRaport();
 
         //printRaport(path);
         //printRaport(args[0]);

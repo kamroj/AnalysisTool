@@ -13,12 +13,22 @@ public class DataExcelGenerator implements IDataGenerator {
     }
 
     @Override
-    public void generateEmployeeRaport() {
-        //todo
+    public void generateEmployeeBasicRaport() {
+
     }
 
     @Override
-    public void generateProjectRaport() {
-        //todo
+    public void generateEmployeeAdvancedRaport() {
+
+    }
+
+    @Override
+    public void generateProjectBasicRaport() {
+
+    }
+
+    @Override
+    public void generateProjectAdvancedRaport() {
+
     }
 }
