@@ -37,6 +37,21 @@
             <version>6.14.3</version>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi</artifactId>
+            <version>3.9</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi-ooxml</artifactId>
+            <version>3.9</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi-ooxml-schemas</artifactId>
+            <version>3.9</version>
+        </dependency>
     </dependencies>
 
     <build>
@@ -71,7 +86,7 @@
                         <index>true</index>
                         <manifest>
                             <addClasspath>true</addClasspath>
-                            <mainClass>#FQN of your MainClass</mainClass>
+                            <mainClass>com.koguty.spocone.Main</mainClass>
                         </manifest>
                         <manifestEntries>
                             <mode>development</mode>

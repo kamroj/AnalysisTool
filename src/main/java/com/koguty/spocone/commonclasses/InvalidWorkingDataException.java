@@ -1,6 +1,9 @@
-package com.koguty.spocone;
+package com.koguty.spocone.commonclasses;
 
-class InvalidWorkingDataException extends Exception {
+/**
+ * @author Kamil Rojek
+ */
+public class InvalidWorkingDataException extends Exception {
     public InvalidWorkingDataException(String msg) {
         super(msg);
     }
