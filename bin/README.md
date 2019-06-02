@@ -1,3 +1,0 @@
-# ABOUT AnalysisTool
-## PREREQUISITES
-## RUNNING

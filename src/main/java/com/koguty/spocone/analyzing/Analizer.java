@@ -81,7 +81,7 @@ public class Analizer {
     }
 
     private void updateData(Project project) throws InvalidWorkingDataException {
-        employee.updateWorkingData(project);
+        employee.updateProject(project);
         dataContainer.addEmployee(employee);
         dataContainer.addProject(project);
     }

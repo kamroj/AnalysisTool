@@ -18,7 +18,7 @@ public class Employee {
         return personalDetails;
     }
 
-    public void updateWorkingData(Project project) throws InvalidWorkingDataException {
+    public void updateProject(Project project) throws InvalidWorkingDataException {
         if (project == null)
             throw new InvalidWorkingDataException("Invalid working Data");
         projects.add(project);
