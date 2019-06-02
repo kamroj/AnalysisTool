@@ -8,6 +8,7 @@ import java.util.List;
 
 public class Pather implements IPather {
     private List<String> patchList;
+    private String absolutPath;
 
     public Pather(String entryPath) throws FileNotFoundException {
         this.patchList = filePathfinder(entryPath);
@@ -15,6 +16,7 @@ public class Pather implements IPather {
 
     private List<String> filePathfinder(String path) throws FileNotFoundException {
         File folder = new File(path);
+        if (absolutPath == null) absolutPath = folder.getAbsolutePath();
         File[] listOfFiles = folder.listFiles();
         return generateListOfFiles(listOfFiles);
     }
@@ -36,9 +38,16 @@ public class Pather implements IPather {
         }
         return list;
     }
+    
+    private String getScope() {
+    	DateScope dateScope = new DateScope(patchList, absolutPath);
+    	return dateScope.getScope();
+    }
 
     @Override
     public List<String> getPatchList() {
+    	System.out.println(getScope());
         return patchList;
     }
+
 }
