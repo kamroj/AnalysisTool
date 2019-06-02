@@ -1,6 +1,6 @@
 # AnalysisTool
 > Program do analizy i zliczania nakładu pracy.
-[![Build Status](https://travis-ci.org/kamroj/AnalysisTool.svg?branch=mergin-work)](https://travis-ci.org/kamroj/AnalysisTool)
+[![Build Status](https://travis-ci.org/kamroj/AnalysisTool.svg?branch=master)](https://travis-ci.org/kamroj/AnalysisTool)
 
 ## Spis treści
 * [Podstawowe informacje](#podstawowe-informacje)
